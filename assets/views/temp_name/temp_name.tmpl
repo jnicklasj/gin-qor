@@ -1,0 +1,14 @@
+<main class="container cart-show">
+<div class="grid">
+  <div class="grid__col is-8">
+
+    <h1>Your Shopping Cart 1</h1>
+    {{.a}}
+    <h1>{{ t "layout.support_and_info" }}</h1>
+    {{range .Nodes}}
+        <h2>{{.Name}}
+    {{end}}
+
+  </div>
+</div>
+</main>
