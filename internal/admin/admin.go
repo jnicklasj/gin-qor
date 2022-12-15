@@ -7,8 +7,10 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/jnicklasj/gin-qor/config"
 	"github.com/jnicklasj/gin-qor/config/bindatafs"
+	appGroup "github.com/jnicklasj/gin-qor/internal/app/group"
 	appKind "github.com/jnicklasj/gin-qor/internal/app/kind"
 	appNode "github.com/jnicklasj/gin-qor/internal/app/node"
+	modelGroup "github.com/jnicklasj/gin-qor/models/group"
 	modelKind "github.com/jnicklasj/gin-qor/models/kind"
 	modelNode "github.com/jnicklasj/gin-qor/models/node"
 	modelProduct "github.com/jnicklasj/gin-qor/models/product"
@@ -31,6 +33,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 			&modelProduct.Product{},
 			&modelKind.Kind{},
 			&modelNode.Node{},
+			&modelGroup.Group{},
 		}
 		Admin = admin.New(&admin.AdminConfig{DB: DB, Auth: AdminAuth{}, AssetFS: bindatafs.AssetFS.NameSpace("admin")})
 	)
@@ -53,6 +56,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 	// Register Apps
 	appKind.Setup(DB, Admin)
 	appNode.Setup(DB, Admin)
+	appGroup.Setup(DB, Admin)
 
 	return Admin
 }
