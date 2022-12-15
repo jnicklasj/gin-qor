@@ -187,6 +187,12 @@ github.com/qor/assetfs v0.0.0-20170713023933-ff57fdc13a14/go.mod h1:GZSCP3jIneuP
 github.com/qor/audited v0.0.0-20171228121055-b52c9c2f0571/go.mod h1:XQ/SY+Bgd2pHTAQhsSwN7KoCJSr8jJVnUqDMPk9rhYk=
 github.com/qor/auth v0.0.0-20200821034127-11d4c974507d h1:hM2ns8r1ld8OzK8MMPTYhiIAC5VsYsCpSEp16zp9K5k=
 github.com/qor/auth v0.0.0-20200821034127-11d4c974507d/go.mod h1:pNZf4EoqpcfAih/j+2t7eFH1MDzgiDj+WwgJqz9fcXU=
+github.com/qor/auth_themes v0.0.0-20190103025702-000e8ac9b42d h1:Dp3/5A9jw3G56Pc40QSrcW8NlHYEBE0EFZImsqSqwDQ=
+github.com/qor/auth_themes v0.0.0-20190103025702-000e8ac9b42d/go.mod h1:sbQN/eJ8JzTcYRoFlgzuf7UeEfqqpvCYDBHOveC+Ktw=
+github.com/qor/cache v0.0.0-20171031031927-c9d48d1f13ba h1:XBEqqX1xirq3pYMGw8Jr0urCfhPXbJEh1KPwKLd24MM=
+github.com/qor/cache v0.0.0-20171031031927-c9d48d1f13ba/go.mod h1:DvjFc9BNYPuokuaZVaXvVukLqqkYDlToNC+Gszv3oRs=
+github.com/qor/i18n v0.0.0-20211222090924-1c3ad686ead6 h1:AaRPk1Za/kaK2wjHRhglZ7SKbRmDJfqH+rE+aoDa7v4=
+github.com/qor/i18n v0.0.0-20211222090924-1c3ad686ead6/go.mod h1:J1gDK288kgSz1oIV9MgV0JmL6pxtXxL/tN7MvCJB3V4=
 github.com/qor/l10n v0.0.0-20181031091737-2ca95fb3b4dd/go.mod h1:SL121FdEw7YlEMYbqngGLjRZbzyxSnxCFGWTnVHgNfM=
 github.com/qor/mailer v0.0.0-20180329083248-0555e49f99ac h1:dONvA5yiZ6LXQ9pEgepLHqtcuhYnzOJfzkLirfs9xos=
 github.com/qor/mailer v0.0.0-20180329083248-0555e49f99ac/go.mod h1:83J4znr9Zj5OF4XPQzh+HFGPwUfXrYPCixwSc+QXTYM=

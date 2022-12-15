@@ -43,6 +43,9 @@ require (
 	github.com/qor/admin v1.2.0 // indirect
 	github.com/qor/assetfs v0.0.0-20170713023933-ff57fdc13a14 // indirect
 	github.com/qor/auth v0.0.0-20200821034127-11d4c974507d // indirect
+	github.com/qor/auth_themes v0.0.0-20190103025702-000e8ac9b42d // indirect
+	github.com/qor/cache v0.0.0-20171031031927-c9d48d1f13ba // indirect
+	github.com/qor/i18n v0.0.0-20211222090924-1c3ad686ead6 // indirect
 	github.com/qor/mailer v0.0.0-20180329083248-0555e49f99ac // indirect
 	github.com/qor/middlewares v0.0.0-20170822143614-781378b69454 // indirect
 	github.com/qor/qor v0.0.0-20210618082622-a52aba0a0ce1 // indirect

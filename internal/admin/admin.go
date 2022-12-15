@@ -1,11 +1,15 @@
 package internal
 
 import (
+	"fmt"
+
 	"github.com/jinzhu/gorm"
+	"github.com/jnicklasj/gin-qor/config"
 	"github.com/jnicklasj/gin-qor/config/bindatafs"
 	productModels "github.com/jnicklasj/gin-qor/models/product"
 	"github.com/qor/admin"
 	"github.com/qor/qor"
+	"github.com/qor/roles"
 )
 
 // func init() {
@@ -56,13 +60,12 @@ func (AdminAuth) LogoutURL(ctx *admin.Context) string {
 }
 
 func (AdminAuth) GetCurrentUser(ctx *admin.Context) qor.CurrentUser {
-	return nil
-	// currentUser, _ := config.Auth.GetCurrentUser(ctx.Request).(qor.CurrentUser)
-	// fmt.Printf("1 The login user is %v\n", currentUser)
+	currentUser, _ := config.Auth.GetCurrentUser(ctx.Request).(qor.CurrentUser)
+	fmt.Printf("1 The login user is %v\n", currentUser)
 
-	// matchedRoles := roles.MatchedRoles(ctx.Request, currentUser)
-	// fmt.Printf("2 The login role is %v\n", matchedRoles)
-	// return currentUser
+	matchedRoles := roles.MatchedRoles(ctx.Request, currentUser)
+	fmt.Printf("2 The login role is %v\n", matchedRoles)
+	return currentUser
 
 	//currentUser := Auth.GetCurrentUser(ctx.Request)
 	//if currentUser != nil {
