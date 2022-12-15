@@ -23,6 +23,7 @@ import (
 	appNotification "github.com/jnicklasj/gin-qor/internal/app/notification"
 	appSizeGroup "github.com/jnicklasj/gin-qor/internal/app/size_group"
 	appSizeItem "github.com/jnicklasj/gin-qor/internal/app/size_item"
+	appTryOn "github.com/jnicklasj/gin-qor/internal/app/try_on"
 	modelFitTool "github.com/jnicklasj/gin-qor/models/fit_tool"
 	modelFitToolFitler "github.com/jnicklasj/gin-qor/models/fit_tool_filter"
 	modelGroup "github.com/jnicklasj/gin-qor/models/group"
@@ -39,6 +40,7 @@ import (
 	modelProduct "github.com/jnicklasj/gin-qor/models/product"
 	modelSizeGroup "github.com/jnicklasj/gin-qor/models/size_group"
 	modelSizeItem "github.com/jnicklasj/gin-qor/models/size_item"
+	modelTryOn "github.com/jnicklasj/gin-qor/models/try_on"
 	modelUser "github.com/jnicklasj/gin-qor/models/user"
 	"github.com/qor/admin"
 	"github.com/qor/media"
@@ -72,6 +74,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 			&modelSizeGroup.SizeGroup{},
 			&modelFitTool.FitTool{},
 			&modelFitToolFitler.FitToolFilter{},
+			&modelTryOn.TryOn{},
 		}
 		Admin = admin.New(&admin.AdminConfig{DB: DB, Auth: AdminAuth{}, AssetFS: bindatafs.AssetFS.NameSpace("admin")})
 	)
@@ -106,6 +109,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 	appSizeGroup.Setup(DB, Admin)
 	appFitTool.Setup(DB, Admin)
 	appFitToolFilter.Setup(DB, Admin)
+	appTryOn.Setup(DB, Admin)
 
 	appNotification.Setup(DB, Admin)
 
