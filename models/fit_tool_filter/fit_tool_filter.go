@@ -1,0 +1,17 @@
+package model
+
+import (
+	modelFitTool "github.com/jnicklasj/gin-qor/models/fit_tool"
+	modelSizeItem "github.com/jnicklasj/gin-qor/models/size_item"
+
+	"github.com/jinzhu/gorm"
+)
+
+type FitToolFilter struct {
+	gorm.Model
+	FitToolsItems []modelFitTool.FitTool   `gorm:"many2many:fit_tool_filter_item;"` // many 2 many
+	SizesItems    []modelSizeItem.SizeItem `gorm:"many2many:fit_tool_size_item;"`   // many 2 many
+	Percentage    float32
+	Active        bool
+	Sort          uint `gorm:"default:1"`
+}
