@@ -7,6 +7,7 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/jnicklasj/gin-qor/config"
 	"github.com/jnicklasj/gin-qor/config/bindatafs"
+	appFitTool "github.com/jnicklasj/gin-qor/internal/app/fit_tool"
 	appGroup "github.com/jnicklasj/gin-qor/internal/app/group"
 	appGroupItem "github.com/jnicklasj/gin-qor/internal/app/group_item"
 	appGroupItemBom "github.com/jnicklasj/gin-qor/internal/app/group_item_bom"
@@ -21,6 +22,7 @@ import (
 	appNotification "github.com/jnicklasj/gin-qor/internal/app/notification"
 	appSizeGroup "github.com/jnicklasj/gin-qor/internal/app/size_group"
 	appSizeItem "github.com/jnicklasj/gin-qor/internal/app/size_item"
+	modelFitTool "github.com/jnicklasj/gin-qor/models/fit_tool"
 	modelGroup "github.com/jnicklasj/gin-qor/models/group"
 	modelGroupItem "github.com/jnicklasj/gin-qor/models/group_item"
 	modelGroupItemBom "github.com/jnicklasj/gin-qor/models/group_item_bom"
@@ -66,6 +68,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 			&modelGroupItemDetailDefault.GroupItemDetailDefault{},
 			&modelSizeItem.SizeItem{},
 			&modelSizeGroup.SizeGroup{},
+			&modelFitTool.FitTool{},
 		}
 		Admin = admin.New(&admin.AdminConfig{DB: DB, Auth: AdminAuth{}, AssetFS: bindatafs.AssetFS.NameSpace("admin")})
 	)
@@ -98,6 +101,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 	appGroupItemDetailDefault.Setup(DB, Admin)
 	appSizeItem.Setup(DB, Admin)
 	appSizeGroup.Setup(DB, Admin)
+	appFitTool.Setup(DB, Admin)
 
 	appNotification.Setup(DB, Admin)
 
