@@ -12,6 +12,7 @@ import (
 	appGroupItemBom "github.com/jnicklasj/gin-qor/internal/app/group_item_bom"
 	appGroupItemBomQty "github.com/jnicklasj/gin-qor/internal/app/group_item_bom_qty"
 	appGroupItemDetail "github.com/jnicklasj/gin-qor/internal/app/group_item_detail"
+	appGroupItemDetailFilter "github.com/jnicklasj/gin-qor/internal/app/group_item_detail_filter"
 	appGroupItemYang "github.com/jnicklasj/gin-qor/internal/app/group_item_yang"
 	appGroupItemYangDetail "github.com/jnicklasj/gin-qor/internal/app/group_item_yang_detail"
 	appKind "github.com/jnicklasj/gin-qor/internal/app/kind"
@@ -22,6 +23,7 @@ import (
 	modelGroupItemBom "github.com/jnicklasj/gin-qor/models/group_item_bom"
 	modelGroupItemBomQty "github.com/jnicklasj/gin-qor/models/group_item_bom_qty"
 	modelGroupItemDetail "github.com/jnicklasj/gin-qor/models/group_item_detail"
+	modelGroupItemDetailFilter "github.com/jnicklasj/gin-qor/models/group_item_detail_filter"
 	modelGroupItemYang "github.com/jnicklasj/gin-qor/models/group_item_yang"
 	modelGroupItemYangDetail "github.com/jnicklasj/gin-qor/models/group_item_yang_detail"
 	modelKind "github.com/jnicklasj/gin-qor/models/kind"
@@ -54,6 +56,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 			&modelGroupItemBomQty.GroupItemBomQty{},
 			&modelGroupItemYang.GroupItemYang{},
 			&modelGroupItemYangDetail.GroupItemYangDetail{},
+			&modelGroupItemDetailFilter.GroupItemDetailFilter{},
 		}
 		Admin = admin.New(&admin.AdminConfig{DB: DB, Auth: AdminAuth{}, AssetFS: bindatafs.AssetFS.NameSpace("admin")})
 	)
@@ -82,6 +85,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 	appGroupItemBomQty.Setup(DB, Admin)
 	appGroupItemYang.Setup(DB, Admin)
 	appGroupItemYangDetail.Setup(DB, Admin)
+	appGroupItemDetailFilter.Setup(DB, Admin)
 
 	appNotification.Setup(DB, Admin)
 
