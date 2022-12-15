@@ -9,10 +9,12 @@ import (
 	"github.com/jnicklasj/gin-qor/config/bindatafs"
 	appGroup "github.com/jnicklasj/gin-qor/internal/app/group"
 	appGroupItem "github.com/jnicklasj/gin-qor/internal/app/group_item"
+	appGroupItemDetail "github.com/jnicklasj/gin-qor/internal/app/group_item_detail"
 	appKind "github.com/jnicklasj/gin-qor/internal/app/kind"
 	appNode "github.com/jnicklasj/gin-qor/internal/app/node"
 	modelGroup "github.com/jnicklasj/gin-qor/models/group"
 	modelGroupItem "github.com/jnicklasj/gin-qor/models/group_item"
+	modelGroupItemDetail "github.com/jnicklasj/gin-qor/models/group_item_detail"
 	modelKind "github.com/jnicklasj/gin-qor/models/kind"
 	modelNode "github.com/jnicklasj/gin-qor/models/node"
 	modelProduct "github.com/jnicklasj/gin-qor/models/product"
@@ -38,6 +40,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 			&modelNode.Node{},
 			&modelGroup.Group{},
 			&modelGroupItem.GroupsItem{},
+			&modelGroupItemDetail.GroupItemDetail{},
 		}
 		Admin = admin.New(&admin.AdminConfig{DB: DB, Auth: AdminAuth{}, AssetFS: bindatafs.AssetFS.NameSpace("admin")})
 	)
@@ -61,6 +64,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 	appNode.Setup(DB, Admin)
 	appGroup.Setup(DB, Admin)
 	appGroupItem.Setup(DB, Admin)
+	appGroupItemDetail.Setup(DB, Admin)
 
 	return Admin
 }
