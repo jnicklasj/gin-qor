@@ -2,29 +2,34 @@ package internal
 
 import (
 	"fmt"
+	"net/http"
 
 	"github.com/jinzhu/gorm"
 	"github.com/jnicklasj/gin-qor/config"
 	"github.com/jnicklasj/gin-qor/config/bindatafs"
-	productModels "github.com/jnicklasj/gin-qor/models/product"
+	appKind "github.com/jnicklasj/gin-qor/internal/app/kind"
+	modelKind "github.com/jnicklasj/gin-qor/models/kind"
+	modelProduct "github.com/jnicklasj/gin-qor/models/product"
+	modelUser "github.com/jnicklasj/gin-qor/models/user"
 	"github.com/qor/admin"
 	"github.com/qor/qor"
 	"github.com/qor/roles"
 )
 
-// func init() {
-// 	roles.Register("administrator", func(req *http.Request, currentUser interface{}) bool {
-// 		return currentUser != nil && currentUser.(*userModel.User).Role == "Admin"
-// 	})
-// }
+func init() {
+	roles.Register("administrator", func(req *http.Request, currentUser interface{}) bool {
+		return currentUser != nil && currentUser.(*modelUser.User).Role == "Admin"
+	})
+}
 
 // NewDummyAdmin generate admin for dummy app
-func NewDummyAdmin(Db *gorm.DB, keepData ...bool) *admin.Admin {
+func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 	var (
 		models = []interface{}{
-			&productModels.Product{},
+			&modelProduct.Product{},
+			&modelKind.Kind{},
 		}
-		Admin = admin.New(&admin.AdminConfig{DB: Db, Auth: AdminAuth{}, AssetFS: bindatafs.AssetFS.NameSpace("admin")})
+		Admin = admin.New(&admin.AdminConfig{DB: DB, Auth: AdminAuth{}, AssetFS: bindatafs.AssetFS.NameSpace("admin")})
 	)
 
 	// AssetFs RegisterPath
@@ -34,16 +39,16 @@ func NewDummyAdmin(Db *gorm.DB, keepData ...bool) *admin.Admin {
 	// AutoMigrate
 	for _, value := range models {
 		if len(keepData) == 0 {
-			Db.DropTableIfExists(value)
+			DB.DropTableIfExists(value)
 		}
 
 		// AutoMigrate 只能新增不存在的字段，不能修改已经存在的字段
 		// will only add missing fields, won't delete/change current data
-		Db.AutoMigrate(value)
+		DB.AutoMigrate(value)
 	}
 
 	// Register Apps
-	// kinds.Setup(Db, Admin)
+	appKind.Setup(DB, Admin)
 
 	return Admin
 }
@@ -66,17 +71,4 @@ func (AdminAuth) GetCurrentUser(ctx *admin.Context) qor.CurrentUser {
 	matchedRoles := roles.MatchedRoles(ctx.Request, currentUser)
 	fmt.Printf("2 The login role is %v\n", matchedRoles)
 	return currentUser
-
-	//currentUser := Auth.GetCurrentUser(ctx.Request)
-	//if currentUser != nil {
-	//	qorCurrentUser, ok := currentUser.(qor.CurrentUser)
-	//	if !ok {
-	//		fmt.Printf("User %#v haven't implement qor.CurrentUser interface\n", currentUser)
-	//	}
-	//
-	//	fmt.Printf("1 The login user is %v\n", qorCurrentUser)
-	//	fmt.Printf("2 The login name is %v\n", qorCurrentUser.DisplayName())
-	//	return qorCurrentUser
-	//}
-	//return nil
 }
