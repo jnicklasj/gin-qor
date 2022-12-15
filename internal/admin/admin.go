@@ -19,6 +19,7 @@ import (
 	appKind "github.com/jnicklasj/gin-qor/internal/app/kind"
 	appNode "github.com/jnicklasj/gin-qor/internal/app/node"
 	appNotification "github.com/jnicklasj/gin-qor/internal/app/notification"
+	appSizeItem "github.com/jnicklasj/gin-qor/internal/app/size_item"
 	modelGroup "github.com/jnicklasj/gin-qor/models/group"
 	modelGroupItem "github.com/jnicklasj/gin-qor/models/group_item"
 	modelGroupItemBom "github.com/jnicklasj/gin-qor/models/group_item_bom"
@@ -31,6 +32,7 @@ import (
 	modelKind "github.com/jnicklasj/gin-qor/models/kind"
 	modelNode "github.com/jnicklasj/gin-qor/models/node"
 	modelProduct "github.com/jnicklasj/gin-qor/models/product"
+	modelSizeItem "github.com/jnicklasj/gin-qor/models/size_item"
 	modelUser "github.com/jnicklasj/gin-qor/models/user"
 	"github.com/qor/admin"
 	"github.com/qor/media"
@@ -60,6 +62,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 			&modelGroupItemYangDetail.GroupItemYangDetail{},
 			&modelGroupItemDetailFilter.GroupItemDetailFilter{},
 			&modelGroupItemDetailDefault.GroupItemDetailDefault{},
+			&modelSizeItem.SizeItem{},
 		}
 		Admin = admin.New(&admin.AdminConfig{DB: DB, Auth: AdminAuth{}, AssetFS: bindatafs.AssetFS.NameSpace("admin")})
 	)
@@ -90,6 +93,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 	appGroupItemYangDetail.Setup(DB, Admin)
 	appGroupItemDetailFilter.Setup(DB, Admin)
 	appGroupItemDetailDefault.Setup(DB, Admin)
+	appSizeItem.Setup(DB, Admin)
 
 	appNotification.Setup(DB, Admin)
 
