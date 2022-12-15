@@ -56,6 +56,7 @@ require (
 	github.com/qor/i18n v0.0.0-20211222090924-1c3ad686ead6 // indirect
 	github.com/qor/mailer v0.0.0-20180329083248-0555e49f99ac // indirect
 	github.com/qor/middlewares v0.0.0-20170822143614-781378b69454 // indirect
+	github.com/qor/notification v0.0.0-20181014061619-c4c002490b78 // indirect
 	github.com/qor/oss v0.0.0-20191031055114-aef9ba66bf76 // indirect
 	github.com/qor/redirect_back v0.0.0-20170907030740-b4161ed6f848 // indirect
 	github.com/qor/render v1.1.1 // indirect

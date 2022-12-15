@@ -201,6 +201,8 @@ github.com/qor/media v0.0.0-20200720100650-60c52edf57cb h1:LgWyG2gPmfiEukIo0yjlQ
 github.com/qor/media v0.0.0-20200720100650-60c52edf57cb/go.mod h1:hzx9cTt5MpROMVIhwNhRJETc7e3a1J4bLNYflkcQ1wk=
 github.com/qor/middlewares v0.0.0-20170822143614-781378b69454 h1:+WCc1IigwWpWBxMFsmLUsIF230TakGHstDajd8aKDAc=
 github.com/qor/middlewares v0.0.0-20170822143614-781378b69454/go.mod h1:PejEyg3hS+Toh5m0AKRv2jK5br8qIoHLqmHrpg0WJYg=
+github.com/qor/notification v0.0.0-20181014061619-c4c002490b78 h1:XYgu511isuQ7VuezI8ybpQY1UT/RWa3iUqITllLynZI=
+github.com/qor/notification v0.0.0-20181014061619-c4c002490b78/go.mod h1:iDlj/2Qcr7lwzzg1/bflqU9Owonnir/HAS2NQuU5XnY=
 github.com/qor/oss v0.0.0-20191031055114-aef9ba66bf76 h1:J2Xj92efYLxPl3BiibgEDEUiMsCBzwTurE/8JjD8CG4=
 github.com/qor/oss v0.0.0-20191031055114-aef9ba66bf76/go.mod h1:JhtPzUhP5KGtCB2yksmxuYAD4hEWw4qGQJpucjsm3U0=
 github.com/qor/publish v0.0.0-20181014061411-abfbacee9e0d/go.mod h1:rsJ6QTqNLOPY3xaWmphqPkMqqbBPS8pAwkJWY+t5XHg=

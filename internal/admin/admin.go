@@ -14,6 +14,7 @@ import (
 	appGroupItemDetail "github.com/jnicklasj/gin-qor/internal/app/group_item_detail"
 	appKind "github.com/jnicklasj/gin-qor/internal/app/kind"
 	appNode "github.com/jnicklasj/gin-qor/internal/app/node"
+	appNotification "github.com/jnicklasj/gin-qor/internal/app/notification"
 	modelGroup "github.com/jnicklasj/gin-qor/models/group"
 	modelGroupItem "github.com/jnicklasj/gin-qor/models/group_item"
 	modelGroupItemBom "github.com/jnicklasj/gin-qor/models/group_item_bom"
@@ -73,6 +74,8 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 	appGroupItemDetail.Setup(DB, Admin)
 	appGroupItemBom.Setup(DB, Admin)
 	appGroupItemBomQty.Setup(DB, Admin)
+
+	appNotification.Setup(DB, Admin)
 
 	return Admin
 }
