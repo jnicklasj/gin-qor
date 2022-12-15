@@ -8,14 +8,17 @@ import (
 	"github.com/jnicklasj/gin-qor/config"
 	"github.com/jnicklasj/gin-qor/config/bindatafs"
 	appGroup "github.com/jnicklasj/gin-qor/internal/app/group"
+	appGroupItem "github.com/jnicklasj/gin-qor/internal/app/group_item"
 	appKind "github.com/jnicklasj/gin-qor/internal/app/kind"
 	appNode "github.com/jnicklasj/gin-qor/internal/app/node"
 	modelGroup "github.com/jnicklasj/gin-qor/models/group"
+	modelGroupItem "github.com/jnicklasj/gin-qor/models/group_item"
 	modelKind "github.com/jnicklasj/gin-qor/models/kind"
 	modelNode "github.com/jnicklasj/gin-qor/models/node"
 	modelProduct "github.com/jnicklasj/gin-qor/models/product"
 	modelUser "github.com/jnicklasj/gin-qor/models/user"
 	"github.com/qor/admin"
+	"github.com/qor/media"
 	"github.com/qor/qor"
 	"github.com/qor/roles"
 )
@@ -34,6 +37,7 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 			&modelKind.Kind{},
 			&modelNode.Node{},
 			&modelGroup.Group{},
+			&modelGroupItem.GroupsItem{},
 		}
 		Admin = admin.New(&admin.AdminConfig{DB: DB, Auth: AdminAuth{}, AssetFS: bindatafs.AssetFS.NameSpace("admin")})
 	)
@@ -41,22 +45,22 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 	// AssetFs RegisterPath
 	Admin.AssetFS.RegisterPath("assets/views")
 	// OSS
-	// media.RegisterCallbacks(Db)
+	media.RegisterCallbacks(DB)
 	// AutoMigrate
-	for _, value := range models {
+	for _, model := range models {
 		if len(keepData) == 0 {
-			DB.DropTableIfExists(value)
+			DB.DropTableIfExists(model)
 		}
-
 		// AutoMigrate 只能新增不存在的字段，不能修改已经存在的字段
 		// will only add missing fields, won't delete/change current data
-		DB.AutoMigrate(value)
+		DB.AutoMigrate(model)
 	}
 
 	// Register Apps
 	appKind.Setup(DB, Admin)
 	appNode.Setup(DB, Admin)
 	appGroup.Setup(DB, Admin)
+	appGroupItem.Setup(DB, Admin)
 
 	return Admin
 }
