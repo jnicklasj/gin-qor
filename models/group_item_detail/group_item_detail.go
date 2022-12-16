@@ -14,7 +14,7 @@ type GroupItemDetail struct {
 	Default     bool
 	Active      bool
 	ExtPrice    float32
-	GroupsItems []modelGroupItem.GroupsItem `gorm:"many2many:group_item_detail_item;"` // many 2 many
+	GroupsItems []modelGroupItem.GroupsItem `gorm:"many2many:group_item_details_item;"` // many 2 many
 
 	Image oss.OSS
 }

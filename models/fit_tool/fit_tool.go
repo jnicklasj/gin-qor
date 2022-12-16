@@ -14,6 +14,6 @@ type FitTool struct {
 	Step   float32
 	Active bool
 	Sort   uint             `gorm:"default:1"`
-	Kinds  []modelKind.Kind `gorm:"many2many:fit_tool_kind;"` // many 2 many
-	Nodes  []modelNode.Node `gorm:"many2many:fit_tool_node;"` // many 2 many
+	Kinds  []modelKind.Kind `gorm:"many2many:fit_tools_kind;"` // many 2 many
+	Nodes  []modelNode.Node `gorm:"many2many:fit_tools_node;"` // many 2 many
 }

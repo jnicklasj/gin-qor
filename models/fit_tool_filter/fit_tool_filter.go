@@ -9,8 +9,8 @@ import (
 
 type FitToolFilter struct {
 	gorm.Model
-	FitToolsItems []modelFitTool.FitTool   `gorm:"many2many:fit_tool_filter_item;"` // many 2 many
-	SizesItems    []modelSizeItem.SizeItem `gorm:"many2many:fit_tool_size_item;"`   // many 2 many
+	FitToolsItems []modelFitTool.FitTool   `gorm:"many2many:fit_tools_filter_item;"` // many 2 many
+	SizesItems    []modelSizeItem.SizeItem `gorm:"many2many:fit_tools_size_item;"`   // many 2 many
 	Percentage    float32
 	Active        bool
 	Sort          uint `gorm:"default:1"`

@@ -8,6 +8,6 @@ import (
 
 type TryOnCmt struct {
 	gorm.Model
-	Tryons []modelTryOn.TryOn `gorm:"many2many:try_on_cmt_tryon;"` // many 2 many
+	Tryons []modelTryOn.TryOn `gorm:"many2many:try_ons_cmts_tryon;"` // many 2 many
 	Cmt    float32
 }

@@ -12,7 +12,7 @@ type TryOn struct {
 	Name   string `gorm:"size:50"`
 	Active bool
 	Sort   uint                                   `gorm:"default:1"`
-	Kinds  []modelKind.Kind                       `gorm:"many2many:try_on_kind;"` // many 2 many
-	Nodes  []modelNode.Node                       `gorm:"many2many:try_on_node;"` // many 2 many
-	Items  []modelGroupItemDetail.GroupItemDetail `gorm:"many2many:try_on_item;"` // many 2 many
+	Kinds  []modelKind.Kind                       `gorm:"many2many:try_ons_kind;"` // many 2 many
+	Nodes  []modelNode.Node                       `gorm:"many2many:try_ons_node;"` // many 2 many
+	Items  []modelGroupItemDetail.GroupItemDetail `gorm:"many2many:try_ons_item;"` // many 2 many
 }

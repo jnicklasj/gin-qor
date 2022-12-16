@@ -10,5 +10,5 @@ type Node struct {
 	Name   string `gorm:"size:50"`
 	Active bool
 	Sort   uint             `gorm:"default:1"`
-	Kinds  []modelKind.Kind `gorm:"many2many:node_kind;"` // many 2 many
+	Kinds  []modelKind.Kind `gorm:"many2many:nodes_kind;"` // many 2 many
 }

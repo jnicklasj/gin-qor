@@ -13,7 +13,7 @@ type SizeGroup struct {
 	Name   string `gorm:"size:50"`
 	Active bool
 	Sort   uint                     `gorm:"default:1"`
-	Kinds  []modelKind.Kind         `gorm:"many2many:size_group_kind;"` // many 2 many
-	Nodes  []modelNode.Node         `gorm:"many2many:size_group_node;"` // many 2 many
-	Items  []modelSizeItem.SizeItem `gorm:"many2many:size_group_item;"` // many 2 many
+	Kinds  []modelKind.Kind         `gorm:"many2many:size_groups_kind;"` // many 2 many
+	Nodes  []modelNode.Node         `gorm:"many2many:size_groups_node;"` // many 2 many
+	Items  []modelSizeItem.SizeItem `gorm:"many2many:size_groups_item;"` // many 2 many
 }

@@ -10,7 +10,7 @@ import (
 type GroupItemYangDetail struct {
 	gorm.Model
 
-	Details []modelGroupItemDetail.GroupItemDetail `gorm:"many2many:group_item_yang_detail_detail;"` // many 2 many
-	Yangs   []modelGroupItemYang.GroupItemYang     `gorm:"many2many:group_item_yang_detail_yang;"`   // many 2 many
+	Details []modelGroupItemDetail.GroupItemDetail `gorm:"many2many:group_item_yangs_detail_detail;"` // many 2 many
+	Yangs   []modelGroupItemYang.GroupItemYang     `gorm:"many2many:group_item_yangs_detail_yang;"`   // many 2 many
 	Value   string                                 `gorm:"size:50"`
 }

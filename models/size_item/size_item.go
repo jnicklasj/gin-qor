@@ -15,6 +15,6 @@ type SizeItem struct {
 	Step   float32
 	Active bool
 	Sort   uint             `gorm:"default:1"`
-	Kinds  []modelKind.Kind `gorm:"many2many:size_item_kind;"` // many 2 many
-	Nodes  []modelNode.Node `gorm:"many2many:size_item_node;"` // many 2 many
+	Kinds  []modelKind.Kind `gorm:"many2many:size_items_kind;"` // many 2 many
+	Nodes  []modelNode.Node `gorm:"many2many:size_items_node;"` // many 2 many
 }

@@ -13,6 +13,6 @@ type GroupItemYang struct {
 	Active bool
 	Must   bool
 	Sort   uint             `gorm:"default:1"`
-	Kinds  []modelKind.Kind `gorm:"many2many:group_item_yang_kind;"` // many 2 many
-	Nodes  []modelNode.Node `gorm:"many2many:group_item_yang_node;"` // many 2 many
+	Kinds  []modelKind.Kind `gorm:"many2many:group_item_yangs_kind;"` // many 2 many
+	Nodes  []modelNode.Node `gorm:"many2many:group_item_yangs_node;"` // many 2 many
 }

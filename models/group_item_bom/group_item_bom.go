@@ -12,6 +12,6 @@ type GroupItemBom struct {
 	Active bool
 	Must   bool
 	Sort   uint             `gorm:"default:1"`
-	Kinds  []modelKind.Kind `gorm:"many2many:group_item_bom_kind;"` // many 2 many
-	Nodes  []modelNode.Node `gorm:"many2many:group_item_bom_node;"` // many 2 many
+	Kinds  []modelKind.Kind `gorm:"many2many:group_item_boms_kind;"` // many 2 many
+	Nodes  []modelNode.Node `gorm:"many2many:group_item_boms_node;"` // many 2 many
 }
