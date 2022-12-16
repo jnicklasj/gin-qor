@@ -14,7 +14,7 @@ type GroupsItem struct {
 	Bom    bool
 	Index  uint               `gorm:"default:1"`
 	Sort   uint               `gorm:"default:1"`
-	Kinds  []modelKind.Kind   `gorm:"many2many:group_items_kind;"`  // many 2 many
-	Nodes  []modelNode.Node   `gorm:"many2many:group_items_node;"`  // many 2 many
-	Groups []modelGroup.Group `gorm:"many2many:group_items_group;"` // many 2 many
+	Kinds  []modelKind.Kind   `gorm:"many2many:group_item_kind;"`  // many 2 many
+	Nodes  []modelNode.Node   `gorm:"many2many:group_item_node;"`  // many 2 many
+	Groups []modelGroup.Group `gorm:"many2many:group_item_group;"` // many 2 many
 }

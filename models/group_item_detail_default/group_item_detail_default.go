@@ -7,7 +7,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-type GroupItemDetailDefault struct {
+type GroupItemDetailsDefault struct {
 	gorm.Model
 	FiltersAt    []modelGroupItemDetail.GroupItemDetail `gorm:"many2many:group_item_details_filter_at;"`    // many 2 many
 	FiltersGroup []modelGroupItem.GroupsItem            `gorm:"many2many:group_item_details_filter_group;"` // many 2 many

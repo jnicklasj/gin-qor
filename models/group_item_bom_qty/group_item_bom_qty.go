@@ -7,7 +7,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-type GroupItemBomQty struct {
+type GroupItemBomsQty struct {
 	gorm.Model
 
 	Details []modelGroupItemDetail.GroupItemDetail `gorm:"many2many:group_item_boms_qty_detail;"` // many 2 many

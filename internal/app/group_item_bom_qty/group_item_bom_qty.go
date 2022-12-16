@@ -11,7 +11,7 @@ import (
 func Setup(Db *gorm.DB, Admin *admin.Admin) {
 
 	var r = Admin.AddResource(
-		&models.GroupItemBomQty{},
+		&models.GroupItemBomsQty{},
 		&admin.Config{
 			Menu: []string{"Settings BOM"},
 			Name: "BOM 耗量",

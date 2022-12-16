@@ -10,7 +10,7 @@ import (
 func Setup(Db *gorm.DB, Admin *admin.Admin) {
 
 	var r = Admin.AddResource(
-		&models.GroupItemYangDetail{},
+		&models.GroupItemYangsDetail{},
 		&admin.Config{
 			Menu: []string{"Settings 净样版"},
 			Name: "样版详情",

@@ -7,7 +7,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-type GroupItemYangDetail struct {
+type GroupItemYangsDetail struct {
 	gorm.Model
 
 	Details []modelGroupItemDetail.GroupItemDetail `gorm:"many2many:group_item_yangs_detail_detail;"` // many 2 many

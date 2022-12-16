@@ -11,7 +11,7 @@ import (
 func Setup(Db *gorm.DB, Admin *admin.Admin) {
 
 	var r = Admin.AddResource(
-		&models.GroupItemDetailDefault{},
+		&models.GroupItemDetailsDefault{},
 		&admin.Config{
 			Menu: []string{"Settings 规则容器"},
 			Name: "首选项",

@@ -67,17 +67,17 @@ func NewDummyAdmin(DB *gorm.DB, keepData ...bool) *admin.Admin {
 			&modelGroupItem.GroupsItem{},
 			&modelGroupItemDetail.GroupItemDetail{},
 			&modelGroupItemBom.GroupItemBom{},
-			&modelGroupItemBomQty.GroupItemBomQty{},
+			&modelGroupItemBomQty.GroupItemBomsQty{},
 			&modelGroupItemYang.GroupItemYang{},
-			&modelGroupItemYangDetail.GroupItemYangDetail{},
-			&modelGroupItemDetailFilter.GroupItemDetailFilter{},
-			&modelGroupItemDetailDefault.GroupItemDetailDefault{},
+			&modelGroupItemYangDetail.GroupItemYangsDetail{},
+			&modelGroupItemDetailFilter.GroupItemDetailsFilter{},
+			&modelGroupItemDetailDefault.GroupItemDetailsDefault{},
 			&modelSizeItem.SizeItem{},
 			&modelSizeGroup.SizeGroup{},
 			&modelFitTool.FitTool{},
-			&modelFitToolFitler.FitToolFilter{},
+			&modelFitToolFitler.FitToolsFilter{},
 			&modelTryOn.TryOn{},
-			&modelTryOnCmt.TryOnCmt{},
+			&modelTryOnCmt.TryOnsCmt{},
 		}
 		Admin = admin.New(&admin.AdminConfig{DB: DB, Auth: AdminAuth{}, AssetFS: bindatafs.AssetFS.NameSpace("admin")})
 	)

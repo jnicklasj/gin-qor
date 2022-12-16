@@ -6,7 +6,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-type TryOnCmt struct {
+type TryOnsCmt struct {
 	gorm.Model
 	Tryons []modelTryOn.TryOn `gorm:"many2many:try_ons_cmts_tryon;"` // many 2 many
 	Cmt    float32

@@ -11,7 +11,7 @@ import (
 func Setup(Db *gorm.DB, Admin *admin.Admin) {
 
 	var r = Admin.AddResource(
-		&models.TryOnCmt{},
+		&models.TryOnsCmt{},
 		&admin.Config{
 			Menu: []string{"Settings 价格体系"},
 			Name: "基价",

@@ -11,7 +11,7 @@ import (
 func Setup(Db *gorm.DB, Admin *admin.Admin) {
 
 	var r = Admin.AddResource(
-		&models.FitToolFilter{},
+		&models.FitToolsFilter{},
 		&admin.Config{
 			Menu: []string{"Settings 规格"},
 			Name: "Fit Tools Filters",

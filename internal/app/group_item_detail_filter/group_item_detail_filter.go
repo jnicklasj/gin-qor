@@ -11,7 +11,7 @@ import (
 func Setup(Db *gorm.DB, Admin *admin.Admin) {
 
 	var r = Admin.AddResource(
-		&models.GroupItemDetailFilter{},
+		&models.GroupItemDetailsFilter{},
 		&admin.Config{
 			Menu: []string{"Settings 规则容器"},
 			Name: "过滤器",
